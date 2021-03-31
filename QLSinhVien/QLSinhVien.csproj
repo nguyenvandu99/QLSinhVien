@@ -145,10 +145,6 @@
     <Content Include="HeThong\admin\dsSinhVien\MainForm.aspx" />
     <Content Include="HeThong\admin\dsSinhVien\ViewForm.aspx" />
     <Content Include="HeThong\admin\home.aspx" />
-    <Content Include="HeThong\admin\xemDiemThi\ActionHandler.aspx" />
-    <Content Include="HeThong\admin\xemDiemThi\DetailForm.aspx" />
-    <Content Include="HeThong\admin\xemDiemThi\MainForm.aspx" />
-    <Content Include="HeThong\admin\xemDiemThi\ViewForm.aspx" />
     <Content Include="img\a1.jpg" />
     <Content Include="img\a2.jpg" />
     <Content Include="img\a3.jpg" />
@@ -278,34 +274,6 @@
     <Compile Include="HeThong\admin\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\ActionHandler.aspx.cs">
-      <DependentUpon>ActionHandler.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\ActionHandler.aspx.designer.cs">
-      <DependentUpon>ActionHandler.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\DetailForm.aspx.cs">
-      <DependentUpon>DetailForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\DetailForm.aspx.designer.cs">
-      <DependentUpon>DetailForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\MainForm.aspx.cs">
-      <DependentUpon>MainForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\MainForm.aspx.designer.cs">
-      <DependentUpon>MainForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\ViewForm.aspx.cs">
-      <DependentUpon>ViewForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HeThong\admin\xemDiemThi\ViewForm.aspx.designer.cs">
-      <DependentUpon>ViewForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Layouts\dkMonHoc.master.cs">
       <DependentUpon>dkMonHoc.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -327,13 +295,6 @@
     <Compile Include="Layouts\dsSinhVien.master.designer.cs">
       <DependentUpon>dsSinhVien.master</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\xemDiemThi.master.cs">
-      <DependentUpon>xemDiemThi.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\xemDiemThi.master.designer.cs">
-      <DependentUpon>xemDiemThi.master</DependentUpon>
-    </Compile>
     <Compile Include="MasterPages\Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,7 +308,6 @@
     <Content Include="MasterPages\Main.Master" />
     <Content Include="Layouts\dsSinhVien.master" />
     <Content Include="Layouts\dsGiangVien.master" />
-    <Content Include="Layouts\xemDiemThi.master" />
     <Content Include="Layouts\dkMonHoc.master" />
     <Content Include="fonts\Montserrat-SemiBold.woff" />
     <Content Include="fonts\OpenSans-Bold.woff" />

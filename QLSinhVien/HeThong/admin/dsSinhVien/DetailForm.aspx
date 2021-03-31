@@ -55,7 +55,7 @@
     </div>
 </form>
 <script type="text/javascript">
-    
+    var urlActionHandler = "ActionHandler.aspx";
     $(document).ready(function () {
         $("#btnSaveStudent").click(function () {
             if (validate()) {
@@ -79,9 +79,9 @@
     }
     function validate() {
         isValid = true;
-        if (document.getElementById("txtTen").value == "") {
+        if (document.getElementById("txtNamHoc").value == "") {
             isValid = false;           
-            alert('Vui lòng nhập đầy đủ họ tên.');
+            alert('Vui lòng nhập đầy đủ năm học.');
 
         } else {
             isValid = true;

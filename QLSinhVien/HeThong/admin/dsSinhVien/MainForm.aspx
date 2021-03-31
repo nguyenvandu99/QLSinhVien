@@ -139,6 +139,7 @@
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
                 }
+               
                 $("#dataList").html(htmlData);
                 CheckboxAll();
             });

@@ -15,22 +15,23 @@ namespace DataAccess.LiB
             dbContext = __dbContext;
         }
 
-        public List<DangKyHocEntity> getPaged(int pageNum, int pageSize, string strTenHocSinh)
+        public List<DangKyHocEntity> getPaged(int pageNum, int pageSize)
         {
-            int excludedRows = (pageNum - 1) * pageSize;
-            strTenHocSinh = strTenHocSinh.Trim().ToLower();
-            var query = (from obj in dbContext.DangKyHocs
-                         where obj.HocSinh1.TEN.Contains(strTenHocSinh)
+            int excludedRows = (pageNum - 1) * pageSize;            
+            var query = (from dkh in dbContext.DangKyHocs
+                         join hs in dbContext.HocSinhs on  dkh.HOCSINH equals hs.ID 
+                         join mh in dbContext.MonHocs on  dkh.MONHOC equals mh.ID 
+                         join gv in dbContext.GiaoViens on dkh.GIAOVIEN equals gv.ID 
                          select new DangKyHocEntity
                          {
-                             ID = obj.ID,
-                             NAMHOC = obj.NAMHOC,
-                             TenHocSinh = obj.HocSinh1.TEN,
-                             TenGiaoVien = obj.GiaoVien1.TEN,
-                             TenMonHoc = obj.MonHoc1.TEN,
-                             NGAYDANGKY = obj.NGAYDANGKY
+                             ID = dkh.ID,
+                             NAMHOC = dkh.NAMHOC,
+                             TenHocSinh = hs.TEN,
+                             TenGiaoVien = gv.TEN,
+                             TenMonHoc = mh.TEN,
+                             NGAYDANGKY = dkh.NGAYDANGKY
                          });
-            return query.Take(pageSize).Skip(excludedRows).ToList();
+            return query.OrderBy(p => p.NAMHOC).Take(pageSize).Skip(excludedRows).ToList();
         }
 
         public List<DangKyHocEntity> getData()

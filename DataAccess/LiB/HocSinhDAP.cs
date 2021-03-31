@@ -15,6 +15,20 @@ namespace DataAccess.LiB
             dbContext = __dbContext;
         }
 
+        public List<HocSinhEntity> getData()
+        {
+            var query = (from hs in dbContext.HocSinhs                                           
+                         select new HocSinhEntity
+                         {
+                             ID = hs.ID,
+                             TEN = hs.TEN,
+                             NGAYSINH = hs.NGAYSINH,
+                             GIOITINH = hs.GIOITINH,
+                             QUEQUAN = hs.QUEQUAN,
+                             LOPID = hs.LOPID,                           
+                         });
+            return query.OrderBy(p => p.TEN).ToList();
+        }
         public List<HocSinhEntity> getDataLop1()
         {
             var query = (from hs in dbContext.HocSinhs

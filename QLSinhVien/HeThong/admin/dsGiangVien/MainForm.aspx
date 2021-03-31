@@ -95,7 +95,7 @@
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
                         + "<td>" + data[i].HOCHAM_HOCVI + "</td>"
                         + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + " <button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
 
                 } $("#dataList").html(htmlData);

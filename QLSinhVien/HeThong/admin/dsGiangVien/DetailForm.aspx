@@ -17,21 +17,24 @@
     </div>
    
     <div class="form-group" style="margin-left: 40%;margin-top:50%;">
-         <button name="btnSave" id="btnSaveStudent" type="button" class="btn btn-success">Lưu lại</button>
+         <button name="btnSave" id="btnSaveGiaoVien" type="button" class="btn btn-success">Lưu lại</button>
         <button name="btnExit" id="btnExit" onclick="javascrip:closeDialog()" class="btn btn-danger">Thoát</button>
     </div>
 </form>
 <script type="text/javascript">   
+  
     $(document).ready(function () {
-        $("#btnSaveStudent").click(function () {
+        $("#btnSaveGiaoVien").click(function () {
             if (validate()) {
                 SubmitForm();
             }
         });
     });
     function SubmitForm() {
-        //onSubmit          
-            var dataPostBack = $("#frmGV").find("input,textarea,select,hidden").not("#__VIEWSTATE,#__EVENTVALIDATION").serialize();           
+        //onSubmit   
+        debugger;
+        var urlActionHandler = "ActionHandler.aspx";
+        var dataPostBack = $("#frmGV").find("input,textarea,select,hidden").not("#__VIEWSTATE,#__EVENTVALIDATION").serialize();           
         $.post(urlActionHandler, dataPostBack, function (data) {
             if (data.Erros) {
                 alert(data.Message);
