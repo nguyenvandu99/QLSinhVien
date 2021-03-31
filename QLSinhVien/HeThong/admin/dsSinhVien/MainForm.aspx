@@ -9,7 +9,7 @@
                 Thêm mới,chỉnh sửa sinh viên lớp DH7C1
             </div>
             <div class="col-sm-12">
-                <button id="btnAdd" name="button-add" onclick="javascript:formAdd()" class="btn btn-primary " type="button">Thêm</button>
+                <button id="btnAdd" name="button-add"  class="btn btn-primary " type="button">Thêm</button>
                 <button id="button-delete" name="button-delete" class="btn btn-danger  disabled" type="submit">Xóa</button>
 
                 <div style="float: right">
@@ -210,11 +210,8 @@
                 });
             }
         }
-        function closeDialog() {
-            $("#jdialog").dialog('close');
-
-        }
-
+       
+        
 
 
 

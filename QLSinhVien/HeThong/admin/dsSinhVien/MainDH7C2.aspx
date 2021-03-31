@@ -8,7 +8,7 @@
                 Thêm mới,chỉnh sửa sinh viên lớp DH7C1
             </div>
             <div class="col-sm-12">
-                <button id="btnAdd" name="button-add" onclick="javascript:formAdd()" class="btn btn-primary " type="button">Thêm</button>
+                <button id="btnAdd" name="button-add"  class="btn btn-primary " type="button">Thêm</button>
                 <button id="button-delete" name="button-delete" class="btn btn-danger  disabled" type="submit">Xóa</button>
 
                 <div style="float: right">
@@ -39,12 +39,9 @@
 
         </table>
     </div>
-   
-    <div id="jdialog">
-    </div>
+  
 
     <script type="text/javascript">
-
         var urlForm = "DetailForm.aspx";
         var urlActionHandler = "ActionHandler.aspx";
         var formWidth = 1000;

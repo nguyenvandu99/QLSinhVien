@@ -511,3 +511,6 @@ zone--list h3 {
     background-color: #05fa28;
 
 }
+.validation-error{
+    color:red;
+}
