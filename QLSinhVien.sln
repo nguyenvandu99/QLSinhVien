@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLSinhVien", "QLSinhVien\QLSinhVien.csproj", "{78C790F5-AC07-4B5E-B9F4-CD82504826FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{6985116D-48C3-44E6-A819-F682EE54F974}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78C790F5-AC07-4B5E-B9F4-CD82504826FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78C790F5-AC07-4B5E-B9F4-CD82504826FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78C790F5-AC07-4B5E-B9F4-CD82504826FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78C790F5-AC07-4B5E-B9F4-CD82504826FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6985116D-48C3-44E6-A819-F682EE54F974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6985116D-48C3-44E6-A819-F682EE54F974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6985116D-48C3-44E6-A819-F682EE54F974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6985116D-48C3-44E6-A819-F682EE54F974}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BE6DF06-06E4-4A2E-A038-75479B91F0C5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="xemDiemThi.master.cs" Inherits="QLSinhVien.Layouts.xemDiemThi" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cplMain" runat="server">
+     <asp:ContentPlaceHolder ID="cplxemDiemThi" runat="server">
+
+</asp:ContentPlaceHolder>
+</asp:Content>

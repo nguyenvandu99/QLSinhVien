@@ -1,0 +1,513 @@
+﻿body {
+    height:100%;
+    width:100%;
+}
+
+@media all and (max-width: 1366px) {
+    
+}
+
+/*
+một số class phổ biến*/
+.container1 {
+    padding: 0 20px;
+    margin-top: 5px;
+}
+a {
+    text-decoration: none;
+}
+/*menu chinh*/
+.main-header {
+    background-color: #77C7FF;
+}
+
+.menu-text {
+    margin-left: 2%;
+}
+
+.main-header ul,
+.main-header li {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+.main-header li {
+    display: inline-block;
+    border-right: 1px solid #bbb;
+}
+
+    .main-header li a {
+        display: inline-block;
+        padding: 10px;
+        color: #fff;
+        font-weight: bold
+    }
+
+        .main-header li a:hover {
+            background: #3BAAFF
+        }
+
+    .main-header li:last-child {
+        border-right: none
+    }
+
+
+
+/*footer*/
+#footer {
+    bottom: 0;
+    background-color: #009ccf;
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    clear: both;
+    margin-top: 5px;
+}
+
+
+
+/*Css cột trái,cột phải của trang ds Sinh Viên*/
+.cotTrai {
+    float: left;
+    width: 19.5%;
+    box-sizing: border-box;
+    
+}
+
+.cotPhai {
+    float: right;
+    width: 80%;
+    box-sizing: border-box;
+   
+}
+
+.tieude {
+    float: left
+}
+.tieude a{text-decoration:none;}
+
+a {
+    color: black;
+}
+
+#content {
+    margin-top: 20px;
+    max-width:100%;    
+    height:auto;
+    
+}
+
+#sidebar {
+    
+}
+/*css cho menu cột trái danh sách sinh viên*/
+.cotTrai .head1 {
+    background: #f9f9f9;
+    padding: 10px;
+    font-weight: bold;
+    border-top: solid 1px #dfdfdf;
+    border-bottom: solid 1px #dfdfdf;
+}
+
+    .cotTrai .head1:first-child {
+        border-top: none
+    }
+
+
+
+.cotTrai li {
+    list-style: none;
+}
+
+.cotTrai ul li a.current,
+.cotTrai ul li a:hover {
+    color: #ff006e
+}
+
+/*Cột phải*/
+.cotPhai .head1 {
+    background: #f9f9f9;
+    padding: 10px;
+    font-weight: bold;
+    border-top: solid 1px #dfdfdf;
+    border-bottom: solid 1px #dfdfdf;
+}
+
+    .cotPhai .head1:first-child {
+        border-top: none;
+    }
+
+.khungChuaBang1 .head1 {
+    background: #f9f9f9;
+    font-weight: bold;
+    border-top: solid 1px #dfdfdf;
+    border-bottom: solid 1px #dfdfdf;
+}
+
+    .khungChuaBang1 .head1:first-child {
+        border-top: none;
+    }
+.khungChuaBang .head1 {
+    background: #f9f9f9;
+    font-weight: bold;
+    border-top: solid 1px #dfdfdf;
+    border-bottom: solid 1px #dfdfdf;
+}
+
+    .khungChuaBang .head1:first-child {
+        border-top: none;
+    }
+/*css danh sách*/
+
+.khungChuaBang {
+    margin-left: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 98%;
+    box-sizing: border-box;
+    border: solid 2px #77C7FF;
+    min-height: 750px;
+}
+
+.khungChuaBang1 {
+    margin-top: 10px;
+}
+
+table.table {
+    width: 100%;
+    margin-top: 10px;
+    max-height:600px;
+}
+
+    table.table th {
+        text-align: center
+    }
+
+
+    table.table .cotMa {
+        text-align: center;
+        width: 5%;
+    }
+
+    table.table .cotTen {
+        width: 10%;
+    }
+
+    table.table .cotQueQuan {
+        text-align: center;
+        width: 5%;
+    }
+
+    table.table .cotGioiTinh {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotNamSinh {
+        text-align: center;
+        width: 5%;
+    }
+
+    table.table .cotLop {
+        text-align: center;
+        width: 5%;
+    }
+
+    table.table .cotKhoa {
+        text-align: center;
+        width: 5%;
+    }
+
+    table.table .cotCheckBox {
+        text-align: left;
+        width: 2%;
+    }
+
+    table.table .cotMaKhoa {
+        text-align: center;
+        width: 5%;
+    }
+
+    table.table .cotDiemKT1 {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotDiemKT1 {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotDiemKT2 {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotThiKetThucHocPhan {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotTongKet {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotDiemChu {
+        text-align: center;
+        width: 3%;
+    }
+
+    table.table .cotCongCu {
+        text-align: right;
+        width: 5%;
+    }
+
+        table.table .cotCongCu a {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+
+            table.table .cotCongCu a.Edit {
+                background-image: url('../img/edit.jpg');
+            }
+
+            table.table .cotCongCu a.Delete {
+                background-image: url('../img/delete.jpg');
+            }
+    /*css môn học*/
+    table.table .cotLopHocPhan {
+        text-align: center;
+    }
+
+    table.table .cotHocPhan {
+        text-align: center;
+    }
+
+    table.table .cotThoiGian {
+        text-align: center;
+    }
+
+    table.table .cotDiaDiem {
+        text-align: center;
+    }
+
+    table.table .cotSiSo {
+        text-align: center;
+    }
+
+    table.table .cotSoDK {
+        text-align: center;
+    }
+
+    table.table .cotSoTC {
+        text-align: center;
+        width: 3%;
+    }
+/* button*/
+/*#button-add {
+    background-image: url();
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: solid 2px #77C7FF;
+    cursor: pointer;
+    height: 24px;
+    padding-left: 30px;
+    vertical-align: middle;
+    margin: 5px;
+}*/
+
+.button-edit {
+    background-image: url('../img/add.jpg');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: solid 2px #77C7FF;
+    cursor: pointer;
+    height: 24px;
+    padding-left: 30px;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+.button-delete {
+    background-image: url(delete.jpg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    border: solid 2px #77C7FF;
+    cursor: pointer;
+    height: 24px;
+    padding-left: 30px;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+#input-Search {
+    margin-left: 70%;
+}
+
+#button-search {
+    margin-left: 5px;
+}
+
+/*Sidebar*/
+/* sibar left*/
+#sidebarLeft{max-width:400px;}
+.sidebarLeft{max-width:350px;}
+#zone1{max-width:350px;}
+.has-border-left {
+    border-left: 1px solid
+}
+
+    .has-border-left.yellow {
+        border-color: #f4d747
+    }
+
+    .has-border-left.orange {
+        border-color: #f26d35
+    }
+
+    .has-border-left.purple {
+        border-color: #9164a9
+    }
+
+    .has-border-left.turquoise {
+        border-color: #2cbaa0
+    }
+
+    .has-border-left.lime {
+        border-color: #ccdc3d
+    }
+zone__body::after {
+    display: table;
+    clear: both;
+    content: ""
+}
+.zone--list ul li { /*!*/
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;   
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    position: relative;
+    height: 62px;
+    background: #eee;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center
+}
+
+    .zone--list ul li:hover a {
+        color: #fff
+    }
+
+    .zone--list ul li.yellow:hover {
+        background: #f4d747
+    }
+
+    .zone--list ul li.orange:hover {
+        background: #f26d35
+    }
+
+    .zone--list ul li.purple:hover {
+        background: #9164a9
+    }
+
+    .zone--list ul li.turquoise:hover {
+        background: #2cbaa0
+    }
+
+    .zone--list ul li.lime:hover {
+        background: #ccdc3d
+    }
+
+    .zone--list ul li a {
+        padding: 0 15px
+    }
+
+
+.zone--suggest .story {
+    margin-bottom: 15px
+}
+
+zone--list .label1, .zone--list .topic, .zone--topic .hashtag {
+    text-transform: uppercase
+}
+.zone--list .label1 {
+    font-family: OpenSans,Helvetica,Arial,sans-serif;
+    font-size: 20vw;
+    font-size: 1.6rem;
+    line-height: 42px;
+    line-height: 4.2rem;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 15px;
+    margin-bottom: 2px;
+    height: 38px;
+    width:89%;
+    margin-left:11%;
+    background: url(../img/decor_heading.png) right 0 no-repeat #b4123b;
+}
+
+zone--list h3 {
+    width: 100%;
+}
+
+.zone--list .topic {
+    font-family: OpenSans,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-size: 1.4rem;
+    width: 60%;
+    max-height: 40px;
+    overflow: hidden;
+    text-decoration:none;
+}
+.zone--list .label, .zone--list .topic, .zone--topic .hashtag {
+    text-transform: uppercase
+}
+
+.zone--list .number {
+    position: absolute;
+    right: 15px
+}
+.number {
+    font-family: Montserrat,Helvetica,Arial,sans-serif;
+    font-size: 36px;
+    font-size: 3.6rem;
+    line-height: 38px;
+    line-height: 3.8rem;
+    color: rgba(0,0,0,.08);
+    width: 60px
+}
+
+
+
+/* sibar right*/
+.sidebar {
+    max-width: 260px;
+    height:100%;
+    margin-top:5px;
+    margin-left:10px;
+}
+
+.sidebar-head {   
+    font-weight:bold;
+    margin-left:10px;
+    color:#B4123B;
+}
+.form-group a{text-decoration:none;}
+
+#sidebarRight{margin-top:10px;}
+/*active menuLop*/
+.active, .menuLop:hover {
+    background-color:#f26d35;
+    color:white;
+}
+.active1, .menuNavBar :hover {
+    background-color: #05fa28;
+
+}

@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="dsSinhVien.master.cs" Inherits="QLSinhVien.Layouts.dsSinhVien" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cplMain" runat="server">
+
+
+
+    <div class="container1">
+        <div class="cotTrai">
+            <div class="head1">Danh sách các lớp</div>
+            <ul class="list-group" id="menuLop">
+                <li class="list-group-item list-group-item-info"><a class="menuLop active" href="/HeThong/admin/dsSinhVien/MainForm.aspx" onclick="javascript:loadFileDH7C1()">Lớp DH7C1</a> </li>
+                <li class="list-group-item list-group-item-info"><a class="menuLop" href="#" onclick="javascript:loadFileDH7C2()">Lớp DH7C2</a> </li>
+                <li class="list-group-item list-group-item-info"><a class="menuLop" href="#" onclick="javascript:loadFileDH7C3()">Lớp DH7C3</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container1">
+        <div class="cotPhai">
+
+
+            <asp:ContentPlaceHolder ID="cpldsSinhVien" runat="server">
+
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </div>
+
+    
+
+</asp:Content>

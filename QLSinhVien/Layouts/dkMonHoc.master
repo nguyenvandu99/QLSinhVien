@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="dkMonHoc.master.cs" Inherits="QLSinhVien.Layouts.dkMonHoc" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cplMain" runat="server">
+
+<asp:ContentPlaceHolder ID="cplDkMonHoc" runat="server">
+
+</asp:ContentPlaceHolder>
+</asp:Content>
+
+
+
+
