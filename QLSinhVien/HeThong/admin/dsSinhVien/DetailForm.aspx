@@ -79,7 +79,7 @@
     }
     function validate() {
         isValid = true;
-        if (document.getElementById("txtNamHoc").value == "") {
+        if (document.getElementById("txtTen").value == "") {
             isValid = false;           
             alert('Vui lòng nhập đầy đủ năm học.');
 

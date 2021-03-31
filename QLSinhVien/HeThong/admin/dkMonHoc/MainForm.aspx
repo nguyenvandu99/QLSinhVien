@@ -81,7 +81,7 @@
                 return false;
             });
         }
-        //Tìm kiếm sinh viên
+        //Tìm kiếm 
         function Search() {
             $.post(encodeURI(urlActionHandler), {
                 "do": "search",
@@ -103,7 +103,7 @@
                 } $("#dataList").html(htmlData);
             })
         };
-        // load giáo viên
+        // load data
         function loadData() {
             $.post(encodeURI(urlActionHandler), { "do": "loaddata" }, function (data) {
                 var htmlData = "";
@@ -116,7 +116,7 @@
                         + "<td>" + data[i].TenHocSinh + "</td>"
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
-                        + "<td>" + data[i].NGAYDANGKY + "</td>"
+                    + "<td>" + GetFormattedDate(data[i].NGAYDANGKY)+ "</td>"
                         + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
@@ -124,7 +124,16 @@
                 $("#dataList").html(htmlData);
                 CheckboxAll();
             });
-
+            function GetFormattedDate(tempDatetime) {
+                var date = new Date(tempDatetime);
+                var month = (date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1));
+                var day = (date.getDate() > 9) ? date.getDate() : ('0' + date.getDate());
+                var year = date.getFullYear();
+                var hour = date.getHours();
+                var mm = date.getMinutes();
+                
+                return hour + ":" + mm + "-" +  day + "/" + month + "/" + year;
+            }
 
         }
         function CheckboxAll() {
@@ -165,6 +174,7 @@
         function EditItem(itemID) {
             $.post(encodeURI(urlForm), { "do": "edit", "itemid": itemID }, function (data) {
                 $("#jdialog").html(data);
+               
             });
             $("#jdialog").dialog({ title: "Cập nhật thông tin sinh viên có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
         }

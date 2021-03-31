@@ -60,7 +60,7 @@ namespace QLSinhVien.HeThong.admin.dkMonHoc
         private void Add()
         {
             DangKyHoc dkh = new DangKyHoc();
-            dkh.NAMHOC = Request["txtNamHoc"].ToString();
+            dkh.NAMHOC = Convert.ToString(Request["txtNamHoc"]);
             dkh.HOCSINH = Convert.ToInt32(Request["sltHocSinh"]);
             dkh.MONHOC = Convert.ToInt32(Request["sltMonHoc"]);
             dkh.GIAOVIEN = Convert.ToInt32(Request["sltGiaoVien"]);
@@ -72,7 +72,7 @@ namespace QLSinhVien.HeThong.admin.dkMonHoc
         private void Update()
         {
             DangKyHoc dkh = new DangKyHoc();
-            dkh.NAMHOC = Request["txtNamHoc"].ToString();
+            dkh.NAMHOC = Convert.ToString(Request["txtNamHoc"]);
             dkh.HOCSINH = Convert.ToInt32(Request["sltHocSinh"]);
             dkh.MONHOC = Convert.ToInt32(Request["sltMonHoc"]);
             dkh.GIAOVIEN = Convert.ToInt32(Request["sltGiaoVien"]);

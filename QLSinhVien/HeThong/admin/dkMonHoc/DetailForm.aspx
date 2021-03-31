@@ -8,7 +8,7 @@
         <label class="control-label col-sm-2">Năm Học(*)
         </label>
         <div class="col-sm-10">
-            <input name="txtTen" type="text" id="txtNamHoc" class="form-control" value="<%=dkh.NAMHOC %>" placeholder="Năm Học" />
+            <input name="txtNamHoc" type="text" id="txtNamHoc" class="form-control" value="<%=dkh.NAMHOC %>" placeholder="Nhập năm học" />
         </div>
     </div>
      <div class="form-group">
@@ -47,7 +47,7 @@
     <div class="form-group">
         <label class="control-label col-sm-2">Ngày đăng ký:</label>
         <div class="col-sm-10">
-            <input name="dateNgayDangKy" id="dateNgayDangKy" type="date" class="form-control"  value="<%= Convert.ToDateTime(dkh.NGAYDANGKY).ToString("yyyy-MM-dd") %>" />
+            <input name="dateNgayDangKy" id="dateNgayDangKy" type="datetime-local" class="form-control"  value="<%= Convert.ToDateTime(dkh.NGAYDANGKY).ToString("yyyy-MM-ddThh:mm") %>" />
         </div>
     </div>
 
@@ -69,7 +69,7 @@
     });
     function SubmitForm() {
         //onSubmit              
-        var dataPostBack = $("#frmHS").find("input,textarea,select,hidden").not("#__VIEWSTATE,#__EVENTVALIDATION").serialize();
+        var dataPostBack = $("#frmDKH").find("input,textarea,select,hidden").not("#__VIEWSTATE,#__EVENTVALIDATION").serialize();
         $.post(urlActionHandler, dataPostBack, function (data) {
             if (data.Erros) {
                 alert(data.Message);
@@ -83,9 +83,9 @@
     }
     function validate() {
         isValid = true;
-        if (document.getElementById("txtTen").value == "") {
+        if (document.getElementById("txtNamHoc").value == "") {
             isValid = false;
-            alert('Vui lòng nhập đầy đủ họ tên.');
+            alert('Vui lòng nhập đầy đủ năm học.');
 
         } else {
             isValid = true;
