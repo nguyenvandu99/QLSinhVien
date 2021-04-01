@@ -15,19 +15,19 @@ namespace DataAccess.LiB
             dbContext = __dbContext;
         }
 
-        public List<MonHocEntity> getPaged(int pageNum, int pageSize , string strTenMonHoc)
+
+
+        public List<MonHocEntity> getPaged(int pageNum, int pageSize)
         {
-            int excludedRows = (pageNum - 1) * pageSize;
-            strTenMonHoc = strTenMonHoc.Trim().ToLower();
-            var query = (from obj in dbContext.MonHocs
-                         where obj.TEN.Contains(strTenMonHoc)
+            int excludedRows = (pageNum - 1) * pageSize;           
+            var query = (from obj in dbContext.MonHocs                        
                          select new MonHocEntity
                          {
                              ID = obj.ID,
                              TEN = obj.TEN,
                              SOTINCHI = obj.SOTINCHI,
                          });
-            return query.Take(pageSize).Skip(excludedRows).ToList();
+            return query.OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
         }
 
         public List<MonHocEntity> getData()
@@ -41,9 +41,26 @@ namespace DataAccess.LiB
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
+
+        public List<MonHocEntity> Search(string searchValue)
+        {
+            var query = (from mh in dbContext.MonHocs
+                         select new MonHocEntity
+                         {
+                             ID = mh.ID,
+                             TEN = mh.TEN,
+                             SOTINCHI = mh.SOTINCHI
+                         });
+            return query.Where(p => (p.TEN.Contains(searchValue))).ToList();
+
+        }
         public MonHoc getByID(int Id)
         {
             return dbContext.MonHocs.Where(p => p.ID == Id).FirstOrDefault();
+        }
+        public DangKyHoc getByIDC(int Id)
+        {
+            return dbContext.DangKyHocs.Where(p => p.MONHOC == Id).FirstOrDefault();
         }
 
         public int Add(MonHoc objDMonHoc)
@@ -60,6 +77,10 @@ namespace DataAccess.LiB
         public int Delete(int Id)
         {
             MonHoc objDMonHoc = getByID(Id);
+            DangKyHoc objDangKyHoc = getByIDC(Id);
+
+
+            dbContext.DangKyHocs.Remove(objDangKyHoc);
             dbContext.MonHocs.Remove(objDMonHoc);
             return dbContext.SaveChanges();
         }

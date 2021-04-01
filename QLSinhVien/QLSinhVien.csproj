@@ -111,6 +111,10 @@
     <Content Include="bootstrap\dataTables.bootstrap4.min.css" />
     <Content Include="bootstrap\dataTables.bootstrap4.min.js" />
     <Content Include="HeThong\admin\dsGiangVien\DetailForm.aspx" />
+    <Content Include="HeThong\admin\dsMonHoc\ActionHandler.aspx" />
+    <Content Include="HeThong\admin\dsMonHoc\DetailForm.aspx" />
+    <Content Include="HeThong\admin\dsMonHoc\MainForm.aspx" />
+    <Content Include="HeThong\admin\dsMonHoc\ViewForm.aspx" />
     <Content Include="img\a4.jpg" />
     <Content Include="img\a5.jpg" />
     <Content Include="img\add.jpg" />
@@ -242,6 +246,34 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HeThong\admin\dsGiangVien\ViewForm.aspx.designer.cs">
+      <DependentUpon>ViewForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\ActionHandler.aspx.cs">
+      <DependentUpon>ActionHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\ActionHandler.aspx.designer.cs">
+      <DependentUpon>ActionHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\DetailForm.aspx.cs">
+      <DependentUpon>DetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\DetailForm.aspx.designer.cs">
+      <DependentUpon>DetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\MainForm.aspx.cs">
+      <DependentUpon>MainForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\MainForm.aspx.designer.cs">
+      <DependentUpon>MainForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\ViewForm.aspx.cs">
+      <DependentUpon>ViewForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeThong\admin\dsMonHoc\ViewForm.aspx.designer.cs">
       <DependentUpon>ViewForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="HeThong\admin\dsSinhVien\ActionHandler.aspx.cs">
