@@ -11,14 +11,17 @@ namespace DataAccess
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class HocSinh
+    using System.Data.Entity;
+
+    public partial class HocSinh 
     {
+        QLSinhVienEntities dbContext;
         public HocSinh()
         {
             this.DangKyHocs = new HashSet<DangKyHoc>();
         }
-    
+       
+
         public int ID { get; set; }
         public string TEN { get; set; }
         public Nullable<System.DateTime> NGAYSINH { get; set; }
@@ -28,6 +31,7 @@ namespace DataAccess
     
         public virtual ICollection<DangKyHoc> DangKyHocs { get; set; }
         public virtual LopHoc LopHoc { get; set; }
+        
     }
     public partial class HocSinhEntity
     {

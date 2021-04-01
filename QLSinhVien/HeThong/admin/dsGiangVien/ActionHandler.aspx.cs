@@ -48,7 +48,7 @@ namespace QLSinhVien.HeThong.admin.dsGiangVien
         private void Search()
         {
             string valueSearch = string.IsNullOrEmpty(Request["value"]) ? "" : Request["value"].ToLower();
-            List<GiaoVienEntity> tbl_GiaoViens = dapGiaoVien.search(valueSearch, page, 15);
+            List<GiaoVienEntity> tbl_GiaoViens = dapGiaoVien.Search(valueSearch);
             string json = JsonConvert.SerializeObject(tbl_GiaoViens);
             Response.ContentType = "json";
             Response.Write(json);

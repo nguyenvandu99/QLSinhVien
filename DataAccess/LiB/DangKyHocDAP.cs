@@ -34,6 +34,27 @@ namespace DataAccess.LiB
             return query.OrderBy(p => p.NAMHOC).Take(pageSize).Skip(excludedRows).ToList();
         }
 
+        public List<DangKyHocEntity> Search(string searchValue, int pageNum, int pageSize)
+        {
+
+            int excludedRows = (pageNum - 1) * pageSize;
+            var query = (from dkh in dbContext.DangKyHocs
+                         join hs in dbContext.HocSinhs on dkh.HOCSINH equals hs.ID
+                         join mh in dbContext.MonHocs on dkh.MONHOC equals mh.ID
+                         join gv in dbContext.GiaoViens on dkh.GIAOVIEN equals gv.ID
+                         select new DangKyHocEntity
+                         {
+                             ID = dkh.ID,
+                             NAMHOC = dkh.NAMHOC,
+                             TenHocSinh = hs.TEN,
+                             TenGiaoVien = gv.TEN,
+                             TenMonHoc = mh.TEN,
+                             NGAYDANGKY = dkh.NGAYDANGKY
+                         });
+            return query.Where(p => (p.TenHocSinh.Contains(searchValue) || p.TenGiaoVien.Contains(searchValue) || p.TenMonHoc.Contains(searchValue))).OrderBy(p => p.TenHocSinh).Take(pageSize).Skip(excludedRows).ToList();
+
+         
+        }
         public List<DangKyHocEntity> getData()
         {
             var query = (from obj in dbContext.DangKyHocs

@@ -50,7 +50,7 @@
             <input name="dateNgayDangKy" id="dateNgayDangKy" type="datetime-local" class="form-control"  value="<%= Convert.ToDateTime(dkh.NGAYDANGKY).ToString("yyyy-MM-ddThh:mm") %>" />
         </div>
     </div>
-    <div class="form-group" style="margin-left: 40%; margin-top: 10%;">
+    <div class="form-group" style="margin-left: 40%; margin-top: 30%;">
         <button name="btnSave" id="btnSaveStudent" type="button" class="btn btn-success">Lưu lại</button>
         <button name="btnExit" id="btnExit" onclick="javascrip:closeDialog()" class="btn btn-danger">Thoát</button>
     </div>

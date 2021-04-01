@@ -17,7 +17,7 @@ namespace DataAccess.LiB
 
         public List<HocSinhEntity> getData()
         {
-            var query = (from hs in dbContext.HocSinhs                                           
+            var query = (from hs in dbContext.HocSinhs
                          select new HocSinhEntity
                          {
                              ID = hs.ID,
@@ -25,7 +25,7 @@ namespace DataAccess.LiB
                              NGAYSINH = hs.NGAYSINH,
                              GIOITINH = hs.GIOITINH,
                              QUEQUAN = hs.QUEQUAN,
-                             LOPID = hs.LOPID,                           
+                             LOPID = hs.LOPID,
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
@@ -48,9 +48,9 @@ namespace DataAccess.LiB
         }
         public List<HocSinhEntity> getPagedLop1(int pageNum, int pageSize)
         {
-            int excludedRows = (pageNum - 1) * pageSize;            
+            int excludedRows = (pageNum - 1) * pageSize;
             var query = (from hs in dbContext.HocSinhs
-                         join lh in dbContext.LopHocs on hs.LOPID equals lh.ID 
+                         join lh in dbContext.LopHocs on hs.LOPID equals lh.ID
                          where hs.LOPID == 1
                          select new HocSinhEntity
                          {
@@ -58,7 +58,7 @@ namespace DataAccess.LiB
                              TEN = hs.TEN,
                              NGAYSINH = hs.NGAYSINH,
                              GIOITINH = hs.GIOITINH,
-                             QUEQUAN = hs.QUEQUAN,                             
+                             QUEQUAN = hs.QUEQUAN,
                              TenLop = lh.TEN
                          });
             return query.OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
@@ -132,7 +132,7 @@ namespace DataAccess.LiB
             return query.OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
         }
 
-        public List<HocSinhEntity> searchLop1(string searchValue, int pageNum , int pageSize)
+        public List<HocSinhEntity> searchLop1(string searchValue, int pageNum, int pageSize)
         {
 
             int excludedRows = (pageNum - 1) * pageSize;
@@ -149,8 +149,8 @@ namespace DataAccess.LiB
                              TenLop = lh.TEN
                          }); ;
             return query.Where(p => (p.TEN.Contains(searchValue))).OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
-        
-     }
+
+        }
         public List<HocSinhEntity> searchLop2(string searchValue, int pageNum, int pageSize)
         {
 
@@ -206,10 +206,12 @@ namespace DataAccess.LiB
 
         public int Delete(int Id)
         {
-            HocSinh objHocSinh = getByID(Id);          
+            HocSinh objHocSinh = getByID(Id);
             dbContext.HocSinhs.Remove(objHocSinh);
             return dbContext.SaveChanges();
         }
+
+        
 
     }
 }

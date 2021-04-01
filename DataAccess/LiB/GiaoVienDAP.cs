@@ -39,9 +39,8 @@ namespace DataAccess.LiB
                         });
             return query.OrderBy(p => p.TEN).ToList();
         }
-        public List<GiaoVienEntity> search(string searchValue, int pageNum, int pageSize)
-        {
-            int excludedRows = (pageNum - 1) * pageSize;
+        public List<GiaoVienEntity> Search(string searchValue)
+        {          
             var query = (from gv in dbContext.GiaoViens
                          select new GiaoVienEntity
                          {
@@ -49,7 +48,7 @@ namespace DataAccess.LiB
                              TEN = gv.TEN,
                              HOCHAM_HOCVI = gv.HOCHAM_HOCVI
                          });
-            return query.Where(p => (p.TEN.Contains(searchValue))).OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
+            return query.Where(p => (p.TEN.Contains(searchValue))).ToList();
 
         }
 

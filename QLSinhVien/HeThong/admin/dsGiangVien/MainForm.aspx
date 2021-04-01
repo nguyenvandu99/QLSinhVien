@@ -17,7 +17,7 @@
                 <button id="btnSearch">Tìm kiếm</button>
             </div>
         </div>
-      
+
 
         <table class="table table-bordered" id="tbGiangVien">
             <thead>
@@ -34,8 +34,14 @@
             </tbody>
         </table>
         <div id="jdialog"></div>
+        <select name="pagenum" id="pagenum">
+            <option value="1">1 </option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
     </div>
-    
+
 
 
     <script>
@@ -95,17 +101,16 @@
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
                         + "<td>" + data[i].HOCHAM_HOCVI + "</td>"
                         + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + " <button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
-
                 } $("#dataList").html(htmlData);
             })
         };
         // load giáo viên
         function loadData() {
-            $.post(encodeURI(urlActionHandler), { "do": "loaddata" }, function (data) {               
+            $.post(encodeURI(urlActionHandler), { "do": "loaddata" }, function (data) {
                 var htmlData = "";
-                for (var i = 0; i < data.length; i++) {                   
+                for (var i = 0; i < data.length; i++) {
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
@@ -116,7 +121,7 @@
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
                 }
-              
+
                 $("#dataList").html(htmlData);
                 CheckboxAll();
             });
@@ -155,7 +160,7 @@
                     checkAllSumitBtn.addClass('disabled');
                 }
             };
-            
+
 
         }
         function EditItem(itemID) {

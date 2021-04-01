@@ -39,24 +39,24 @@ namespace QLSinhVien.HeThong.admin.dkMonHoc
                     break;
                 case "loaddata":
                     LoadData();
-                    break;               
-                //case "search":
-                //    Search();
-                //    break;
+                    break;
+                case "search":
+                    Search();
+                    break;
                 default:
                     break;
             }
 
         }
-        //private void Search()
-        //{
-        //    string valueSearch = string.IsNullOrEmpty(Request["value"]) ? "" : Request["value"].ToLower();
-        //    List<HocSinhEntity> tbl_HocSinhs = hocsinhDAP.searchLop3(valueSearch, page, 15);
-        //    string json = JsonConvert.SerializeObject(tbl_HocSinhs);
-        //    Response.ContentType = "json";
-        //    Response.Write(json);
-        //    Response.End();
-        //}
+        private void Search()
+        {
+            string valueSearch = string.IsNullOrEmpty(Request["value"]) ? "" : Request["value"].ToLower();
+            List<DangKyHocEntity> tbl_DangKyHocs = dapDangKyHoc.Search(valueSearch, page, 15);
+            string json = JsonConvert.SerializeObject(tbl_DangKyHocs);
+            Response.ContentType = "json";
+            Response.Write(json);
+            Response.End();
+        }
         private void Add()
         {
             DangKyHoc dkh = new DangKyHoc();

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/dkMonHoc.master" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="QLSinhVien.HeThong.admin.dkMonHoc.MainForm" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cplDkMonHoc" runat="server">
 
-<div class="khungChuaBang">
+    <div class="khungChuaBang">
         <div class="head1">
             Thêm mới,chỉnh sửa đăng ký học khoa công nghệ thông tin
         </div>
@@ -12,11 +13,11 @@
             <button id="btnAdd" name="btnAdd" class="btn btn-primary " type="button">Thêm</button>
             <button id="button-delete" name="button-delete" class="btn btn-danger  disabled" type="submit">Xóa</button>
             <div style="float: right">
-                <input type="text" name="txtSearch" id="txtSearch" value="" placeholder="Tìm kiếm theo tên" style="width: 250px;" />
+                <input type="text" name="txtSearch" id="txtSearch" value="" placeholder="Tìm kiếm theo tên học sinh hoặc tên giáo viên hoặc tên môn học" style="width: 400px;" />
                 <button id="btnSearch">Tìm kiếm</button>
             </div>
         </div>
-      
+
 
         <table class="table table-bordered" id="tbDangKyHoc">
             <thead>
@@ -26,9 +27,9 @@
                     <th class="cotMa">Mã đăng ký</th>
                     <th class="cotTen">Năm học</th>
                     <th class="cotNamSinh">Tên học sinh</th>
-                     <th class="cotNamSinh">Tên môn học</th>
-                     <th class="cotNamSinh">Tên giáo viên</th>
-                     <th class="cotNamSinh"> Ngày đăng ký</th>
+                    <th class="cotNamSinh">Tên môn học</th>
+                    <th class="cotNamSinh">Tên giáo viên</th>
+                    <th class="cotNamSinh">Ngày đăng ký</th>
                     <th class="cotCongCu">Công cụ</th>
                 </tr>
             </thead>
@@ -36,8 +37,14 @@
             </tbody>
         </table>
         <div id="jdialog"></div>
+        <select name="pagenum" id="pagenum">
+            <option value="1">1 </option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
     </div>
-    
 
 
     <script>
@@ -95,13 +102,29 @@
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
                         + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].NAMHOC + "</td>"
-                        + "<td>" + data[i].HOCHAM_HOCVI + "</td>"
-                        + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td>" + data[i].TenHocSinh + "</td>"
+                        + "<td>" + data[i].TenMonHoc + "</td>"
+                        + "<td>" + data[i].TenGiaoVien + "</td>"
+                        + "<td>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
+                        + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
+                        + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
                         + "</tr>";
 
-                } $("#dataList").html(htmlData);
+                    }
+                    
+                    $("#dataList").html(htmlData);
+                    CheckboxAll();
             })
+            function GetFormattedDate(tempDatetime) {
+                var date = new Date(tempDatetime);
+                var month = (date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1));
+                var day = (date.getDate() > 9) ? date.getDate() : ('0' + date.getDate());
+                var year = date.getFullYear();
+                var hour = date.getHours();
+                var mm = date.getMinutes();
+
+                return hour + ":" + mm + "-" + day + "/" + month + "/" + year;
+            }
         };
         // load data
         function loadData() {
@@ -116,7 +139,7 @@
                         + "<td>" + data[i].TenHocSinh + "</td>"
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
-                        + "<td>" + GetFormattedDate(data[i].NGAYDANGKY)+ "</td>"
+                        + "<td>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
                         + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
                         + "</tr>";
@@ -131,8 +154,8 @@
                 var year = date.getFullYear();
                 var hour = date.getHours();
                 var mm = date.getMinutes();
-                
-                return hour + ":" + mm + "-" +  day + "/" + month + "/" + year;
+
+                return hour + ":" + mm + "-" + day + "/" + month + "/" + year;
             }
 
         }
@@ -174,7 +197,7 @@
         function EditItem(itemID) {
             $.post(encodeURI(urlForm), { "do": "edit", "itemid": itemID }, function (data) {
                 $("#jdialog").html(data);
-               
+
             });
             $("#jdialog").dialog({ title: "Cập nhật thông tin đăng ký học có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
         }
