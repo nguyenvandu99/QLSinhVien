@@ -15,7 +15,7 @@ namespace DataAccess
 
     public partial class HocSinh 
     {
-        QLSinhVienEntities dbContext;
+        
         public HocSinh()
         {
             this.DangKyHocs = new HashSet<DangKyHoc>();

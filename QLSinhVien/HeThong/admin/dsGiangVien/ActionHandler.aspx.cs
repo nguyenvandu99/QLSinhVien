@@ -82,7 +82,7 @@ namespace QLSinhVien.HeThong.admin.dsGiangVien
         public void LoadData()
         {
           
-            List<GiaoVienEntity> lstGiaoVien = dapGiaoVien.getPaged(1, 15);
+            List<GiaoVienEntity> lstGiaoVien = dapGiaoVien.getPaged(1, 15,"");
             string json = JsonConvert.SerializeObject(lstGiaoVien);
             Response.ContentType = "json";
             Response.Write(json);

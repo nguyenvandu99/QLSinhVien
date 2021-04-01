@@ -26,10 +26,12 @@ namespace DataAccess.LiB
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
-        public List<LopHocEntity> getPaged(int pageNum, int pageSize)
+        public List<LopHocEntity> getPaged(int pageNum, int pageSize,string strTenLH)
         {
             int excludedRows = (pageNum - 1) * pageSize;
+            strTenLH = strTenLH.Trim().ToLower();
             var query = (from lh in dbContext.LopHocs
+                         where lh.TEN.Contains(strTenLH)
                          select new LopHocEntity
                          {
                              ID = lh.ID,

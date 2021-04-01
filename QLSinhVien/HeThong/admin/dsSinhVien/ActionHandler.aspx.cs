@@ -125,7 +125,7 @@ namespace QLSinhVien.HeThong.admin.dsSinhVien
             //jMessage.jsonData = getJson(lstHocSinh);
             //jMessage.Erros = false;
             
-            List<HocSinhEntity> lstHocSinh = hocsinhDAP.getPagedLop1(1 , 15);
+            List<HocSinhEntity> lstHocSinh = hocsinhDAP.getPagedLop1(1 , 15, "");
             string json = JsonConvert.SerializeObject(lstHocSinh);
             Response.ContentType = "json";
             Response.Write(json);
@@ -137,7 +137,7 @@ namespace QLSinhVien.HeThong.admin.dsSinhVien
             //jMessage.jsonData = getJson(lstHocSinh);
             //jMessage.Erros = false;
 
-            List<HocSinhEntity> lstHocSinh = hocsinhDAP.getPagedLop2(1, 15);
+            List<HocSinhEntity> lstHocSinh = hocsinhDAP.getPagedLop2(1, 15, "");
             string json = JsonConvert.SerializeObject(lstHocSinh);
             Response.ContentType = "json";
             Response.Write(json);
@@ -149,7 +149,7 @@ namespace QLSinhVien.HeThong.admin.dsSinhVien
             //jMessage.jsonData = getJson(lstHocSinh);
             //jMessage.Erros = false;
 
-            List<HocSinhEntity> lstHocSinh = hocsinhDAP.getPagedLop3(1, 15);
+            List<HocSinhEntity> lstHocSinh = hocsinhDAP.getPagedLop3(1, 15,"");
             string json = JsonConvert.SerializeObject(lstHocSinh);
             Response.ContentType = "json";
             Response.Write(json);

@@ -17,15 +17,17 @@ namespace DataAccess.LiB
 
 
 
-        public List<MonHocEntity> getPaged(int pageNum, int pageSize)
+        public List<MonHocEntity> getPaged(int pageNum, int pageSize,string strTenMH)
         {
-            int excludedRows = (pageNum - 1) * pageSize;           
-            var query = (from obj in dbContext.MonHocs                        
+            int excludedRows = (pageNum - 1) * pageSize;
+            strTenMH = strTenMH.Trim().ToLower();
+            var query = (from mh in dbContext.MonHocs
+                         where mh.TEN.Contains(strTenMH)
                          select new MonHocEntity
                          {
-                             ID = obj.ID,
-                             TEN = obj.TEN,
-                             SOTINCHI = obj.SOTINCHI,
+                             ID = mh.ID,
+                             TEN = mh.TEN,
+                             SOTINCHI = mh.SOTINCHI,
                          });
             return query.OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
         }

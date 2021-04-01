@@ -49,11 +49,13 @@ namespace DataAccess.LiB
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
-        public List<HocSinhEntity> getPagedLop1(int pageNum, int pageSize)
+        public List<HocSinhEntity> getPagedLop1(int pageNum, int pageSize, string strTenSV)
         {
             int excludedRows = (pageNum - 1) * pageSize;
+            strTenSV = strTenSV.Trim().ToLower();
             var query = (from hs in dbContext.HocSinhs
                          join lh in dbContext.LopHocs on hs.LOPID equals lh.ID
+                         where hs.TEN.Contains(strTenSV)
                          where hs.LOPID == 1
                          select new HocSinhEntity
                          {
@@ -83,11 +85,13 @@ namespace DataAccess.LiB
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
-        public List<HocSinhEntity> getPagedLop2(int pageNum, int pageSize)
+        public List<HocSinhEntity> getPagedLop2(int pageNum, int pageSize, string strTenSV)
         {
             int excludedRows = (pageNum - 1) * pageSize;
+            strTenSV = strTenSV.Trim().ToLower();
             var query = (from hs in dbContext.HocSinhs
                          join lh in dbContext.LopHocs on hs.LOPID equals lh.ID
+                         where hs.TEN.Contains(strTenSV)
                          where hs.LOPID == 2
                          select new HocSinhEntity
                          {
@@ -117,11 +121,13 @@ namespace DataAccess.LiB
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
-        public List<HocSinhEntity> getPagedLop3(int pageNum, int pageSize)
+        public List<HocSinhEntity> getPagedLop3(int pageNum, int pageSize, string strTenSV)
         {
             int excludedRows = (pageNum - 1) * pageSize;
+            strTenSV = strTenSV.Trim().ToLower();
             var query = (from hs in dbContext.HocSinhs
                          join lh in dbContext.LopHocs on hs.LOPID equals lh.ID
+                         where hs.TEN.Contains(strTenSV)
                          where hs.LOPID == 3
                          select new HocSinhEntity
                          {

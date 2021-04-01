@@ -83,7 +83,7 @@ namespace QLSinhVien.HeThong.admin.dsMonHoc
         public void LoadData()
         {
 
-            List<MonHocEntity> lstMonHocs = dapMonHoc.getPaged(1, 15);
+            List<MonHocEntity> lstMonHocs = dapMonHoc.getPaged(1, 15,"");
             string json = JsonConvert.SerializeObject(lstMonHocs);
             Response.ContentType = "json";
             Response.Write(json);

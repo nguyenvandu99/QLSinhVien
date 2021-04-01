@@ -93,7 +93,7 @@ namespace QLSinhVien.HeThong.admin.dkMonHoc
             //jMessage.jsonData = getJson(lstHocSinh);
             //jMessage.Erros = false;
 
-            List<DangKyHocEntity> lstDangKyHoc = dapDangKyHoc.getPaged(1, 15);
+            List<DangKyHocEntity> lstDangKyHoc = dapDangKyHoc.getPaged(1, 15,"");
             string json = JsonConvert.SerializeObject(lstDangKyHoc);
             Response.ContentType = "json";
             Response.Write(json);

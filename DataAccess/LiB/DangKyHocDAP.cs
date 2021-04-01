@@ -15,13 +15,15 @@ namespace DataAccess.LiB
             dbContext = __dbContext;
         }
 
-        public List<DangKyHocEntity> getPaged(int pageNum, int pageSize)
+        public List<DangKyHocEntity> getPaged(int pageNum, int pageSize,string strNamHoc)
         {
-            int excludedRows = (pageNum - 1) * pageSize;            
+            int excludedRows = (pageNum - 1) * pageSize;
+            strNamHoc = strNamHoc.Trim().ToLower();
             var query = (from dkh in dbContext.DangKyHocs
-                         join hs in dbContext.HocSinhs on  dkh.HOCSINH equals hs.ID 
-                         join mh in dbContext.MonHocs on  dkh.MONHOC equals mh.ID 
-                         join gv in dbContext.GiaoViens on dkh.GIAOVIEN equals gv.ID 
+                         join hs in dbContext.HocSinhs on dkh.HOCSINH equals hs.ID
+                         join mh in dbContext.MonHocs on dkh.MONHOC equals mh.ID
+                         join gv in dbContext.GiaoViens on dkh.GIAOVIEN equals gv.ID
+                         where dkh.NAMHOC.Contains(strNamHoc)
                          select new DangKyHocEntity
                          {
                              ID = dkh.ID,
@@ -30,7 +32,7 @@ namespace DataAccess.LiB
                              TenGiaoVien = gv.TEN,
                              TenMonHoc = mh.TEN,
                              NGAYDANGKY = dkh.NGAYDANGKY
-                         });
+                         }); ;
             return query.OrderBy(p => p.NAMHOC).Take(pageSize).Skip(excludedRows).ToList();
         }
 
