@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DetailForm.aspx.cs" Inherits="QLSinhVien.HeThong.admin.dkMonHoc.DetailForm" %>
 
-<h4 style="text-align: center;">Cập nhập thông tin sinh viên</h4>
+
 <form autocomplete="off" onsubmit="event.preventDefault();" class="form-horizontal" id="frmDKH" role="form">
     <input type="hidden" name="ItemID" value="<%=itemID %>" />
     <input type="hidden" name="do" value="<%=doAction%>" />
@@ -50,9 +50,6 @@
             <input name="dateNgayDangKy" id="dateNgayDangKy" type="datetime-local" class="form-control"  value="<%= Convert.ToDateTime(dkh.NGAYDANGKY).ToString("yyyy-MM-ddThh:mm") %>" />
         </div>
     </div>
-
-    
-   
     <div class="form-group" style="margin-left: 40%; margin-top: 10%;">
         <button name="btnSave" id="btnSaveStudent" type="button" class="btn btn-success">Lưu lại</button>
         <button name="btnExit" id="btnExit" onclick="javascrip:closeDialog()" class="btn btn-danger">Thoát</button>

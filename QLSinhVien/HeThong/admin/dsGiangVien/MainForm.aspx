@@ -5,7 +5,7 @@
 
     <div class="khungChuaBang">
         <div class="head1">
-            Thêm mới,chỉnh sửa giảng viên khoa công nghệ thông tin
+            Thêm mới,chỉnh sửa giáo viên khoa công nghệ thông tin
         </div>
 
 
@@ -41,8 +41,8 @@
     <script>
         var urlForm = "DetailForm.aspx";
         var urlActionHandler = "ActionHandler.aspx";
-        var formWidth = 1000;
-        var formHeight = 700;
+        var formWidth = 800;
+        var formHeight = 600;
         $(document).ready(function () {
             loadData();
             RegisterMainEvent();
@@ -162,7 +162,7 @@
             $.post(encodeURI(urlForm), { "do": "edit", "itemid": itemID }, function (data) {
                 $("#jdialog").html(data);
             });
-            $("#jdialog").dialog({ title: "Cập nhật thông tin sinh viên có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
+            $("#jdialog").dialog({ title: "Cập nhật thông tin giáo viên có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
         }
         function DeleteItem(itemID) {
             var c = confirm('Bạn muốn xóa lựa chọn ?');
@@ -172,9 +172,6 @@
                 });
             }
         }
-
-
-
     </script>
 
 </asp:Content>

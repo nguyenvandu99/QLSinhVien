@@ -45,8 +45,8 @@
 
         var urlForm = "DetailForm.aspx";
         var urlActionHandler = "ActionHandler.aspx";
-        var formWidth = 1000;
-        var formHeight = 700;
+        var formWidth = 800;
+        var formHeight = 600;
         $(document).ready(function () {
             loadData();
             RegisterMainEvent();

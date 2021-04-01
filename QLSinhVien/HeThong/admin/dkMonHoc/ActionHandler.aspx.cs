@@ -71,7 +71,7 @@ namespace QLSinhVien.HeThong.admin.dkMonHoc
         }
         private void Update()
         {
-            DangKyHoc dkh = new DangKyHoc();
+            DangKyHoc dkh = dapDangKyHoc.getByID(itemID);            
             dkh.NAMHOC = Convert.ToString(Request["txtNamHoc"]);
             dkh.HOCSINH = Convert.ToInt32(Request["sltHocSinh"]);
             dkh.MONHOC = Convert.ToInt32(Request["sltMonHoc"]);

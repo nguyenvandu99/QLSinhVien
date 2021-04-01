@@ -89,9 +89,7 @@
         }      
         return isValid;
     }
-    function closeDialog() {
-        $("#jdialog").html("").dialog('close');
-    }
+    
 
 
 </script>

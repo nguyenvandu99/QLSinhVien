@@ -4,7 +4,7 @@
 
 <div class="khungChuaBang">
         <div class="head1">
-            Thêm mới,chỉnh sửa giảng viên khoa công nghệ thông tin
+            Thêm mới,chỉnh sửa đăng ký học khoa công nghệ thông tin
         </div>
 
 
@@ -43,8 +43,8 @@
     <script>
         var urlForm = "DetailForm.aspx";
         var urlActionHandler = "ActionHandler.aspx";
-        var formWidth = 1000;
-        var formHeight = 700;
+        var formWidth = 800;
+        var formHeight = 600;
         $(document).ready(function () {
             loadData();
             RegisterMainEvent();
@@ -116,9 +116,9 @@
                         + "<td>" + data[i].TenHocSinh + "</td>"
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
-                    + "<td>" + GetFormattedDate(data[i].NGAYDANGKY)+ "</td>"
-                        + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td>" + GetFormattedDate(data[i].NGAYDANGKY)+ "</td>"
+                        + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
+                        + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
                         + "</tr>";
                 }
                 $("#dataList").html(htmlData);
@@ -176,7 +176,7 @@
                 $("#jdialog").html(data);
                
             });
-            $("#jdialog").dialog({ title: "Cập nhật thông tin sinh viên có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
+            $("#jdialog").dialog({ title: "Cập nhật thông tin đăng ký học có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
         }
         function DeleteItem(itemID) {
             var c = confirm('Bạn muốn xóa lựa chọn ?');
