@@ -106,8 +106,8 @@
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
                         + "<td class='cotNgayDK'>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
-                        + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-trash-alt'></i> </a> </td>"
                         + "</tr>";
 
                     }
@@ -140,8 +140,8 @@
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
                         + "<td class='cotNgayDK'>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
-                        + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-trash-alt'></i> </a> </td>"
                         + "</tr>";
 
                 }

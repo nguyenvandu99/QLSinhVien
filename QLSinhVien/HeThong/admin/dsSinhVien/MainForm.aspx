@@ -107,8 +107,8 @@
                         + "<td class='cotGioiTinh'>" + (data[i].GIOITINH == 0 ? "Nam" : "Nữ") + "</td>"
                         + "<td class='cotQueQuan'>" + data[i].QUEQUAN + "</td>"
                         + "<td class='cotMa'>" + data[i].TenLop + "</td>"
-                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-user-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-user-times'></i> </a> </td>"
                         + "</tr>";
                 } $("#dataList").html(htmlData);
             })
@@ -135,8 +135,8 @@
                         + "<td class='cotGioiTinh'>" + (data[i].GIOITINH == 0 ? "Nam" : "Nữ") + "</td>"
                         + "<td class='cotQueQuan'>" + data[i].QUEQUAN + "</td>"
                         + "<td class='cotMa'>" + data[i].TenLop + "</td>"
-                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-user-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-user-times'></i> </a> </td>"                     
                         + "</tr>";
                 }
                

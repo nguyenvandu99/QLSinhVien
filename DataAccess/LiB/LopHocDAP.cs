@@ -56,6 +56,10 @@ namespace DataAccess.LiB
         {
             return dbContext.LopHocs.Where(p => p.ID == Id).FirstOrDefault();
         }
+        public HocSinh getByIDC(int Id)
+        {
+            return dbContext.HocSinhs.Where(p => p.LOPID == Id).FirstOrDefault();
+        }
         public int Add(LopHoc objLopHoc)
         {
             dbContext.LopHocs.Add(objLopHoc);
@@ -65,12 +69,20 @@ namespace DataAccess.LiB
         public int Save()
         {
             return dbContext.SaveChanges();
-        }
-
+        }       
         public int Delete(int Id)
         {
             LopHoc objLopHoc = getByID(Id);
-            dbContext.LopHocs.Remove(objLopHoc);
+            HocSinh objHocSinh = getByIDC(Id);
+
+            if (Convert.ToString(objHocSinh) == "")
+            {
+                dbContext.LopHocs.Remove(objLopHoc);
+            }
+            else
+            {
+                
+            }           
             return dbContext.SaveChanges();
         }
     }

@@ -4,7 +4,7 @@
      <input type="hidden" name="ItemID" value="<%=itemID %>" />
      <input type="hidden" name="do" value="<%=doAction%>" />
     <div class="form-group">
-        <label class="control-label col-sm-2">Tên môn học(*):</label>
+        <label class="control-label col-sm-2">Tên lớp học(*):</label>
         <div class="col-sm-10">
             <input name="txtTen" type="text" id="txtTen" class="form-control" value="<%=lh.TEN %>" />
 

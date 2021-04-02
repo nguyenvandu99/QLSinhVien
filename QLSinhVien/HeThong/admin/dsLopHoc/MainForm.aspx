@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="QLSinhVien.HeThong.admin.dsLopHoc.MainForm" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cplMain" runat="server">
 
-<div class="khungChuaBang">
+    <div class="khungChuaBang">
         <div class="head1">
             Thêm mới,chỉnh sửa môn học
         </div>
@@ -19,7 +20,7 @@
         </div>
 
 
-        <table class="table table-bordered" id="tbGiangVien">
+        <table class="table table-bordered" id="tbLopHoc">
             <thead>
                 <tr>
                     <th class="cotCheckBox">
@@ -45,13 +46,16 @@
 
 
     <script>
+        <%=""%>
         var urlForm = "DetailForm.aspx";
         var urlActionHandler = "ActionHandler.aspx";
         var formWidth = 800;
         var formHeight = 600;
+        
         $(document).ready(function () {
             loadData();
             RegisterMainEvent();
+
         });
         function RegisterMainEvent() {
             $("#btnAdd").click(function () {
@@ -68,7 +72,7 @@
 
             $("#button-delete").click(function () {
                 var sel = false;
-                var ch = $('#tbGiangVien').find('tbody input[type=checkbox]');
+                var ch = $('#tbLopHoc').find('tbody input[type=checkbox]');
                 var c = confirm('Bạn muốn xóa lựa chọn ?');
                 if (c) {
                     ch.each(function () {
@@ -96,18 +100,19 @@
                 for (var i = 0; i < data.length; i++) {
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
-                        + "<td class='cotCheckBox'><input name=courseIds class='checkItem' type=checkbox /> </td>"
+                        + "<td class='cotCheckBox'><input name=courseIds  class='checkItem' type=checkbox /> </td>"
                         + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
                         + "<td class='cotSoTC'>" + data[i].CHUNHIEM + "</td>"
-                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-trash-alt'></i> </a> </td>"
                         + "</tr>";
                 } $("#dataList").html(htmlData);
             })
         };
+
         // load data
-        function loadData() {
+        function loadData(numCheckDelete) {
             $.post(encodeURI(urlActionHandler), { "do": "loaddata" }, function (data) {
                 var htmlData = "";
                 for (var i = 0; i < data.length; i++) {
@@ -116,18 +121,25 @@
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
                         + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
-                        + "<td class='cotSoTC'>" + data[i].CHUNHIEM + "</td>"                      
-                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td class='cotSoTC'>" + data[i].CHUNHIEM + "</td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-trash-alt'></i> </a> </td>"
                         + "</tr>";
                 }
 
                 $("#dataList").html(htmlData);
                 CheckboxAll();
+                var newCheckDelete = $('.checkItem');
+                //check xóa thành công hay không
+                if (newCheckDelete.length == numCheckDelete) {
+                    alert('Không thể xóa lớp học vì còn sinh viên tồn tại trong lớp.')
+                   
+                }                                               
             });
-
+            
 
         }
+
         function CheckboxAll() {
             // check box all
             var courseItemCheckbox = $('.checkItem');
@@ -167,29 +179,20 @@
             });
             $("#jdialog").dialog({ title: "Cập nhật thông tin lớp học có mã ID = " + itemID, width: formWidth, height: formHeight }).dialog("open");
         }
+
         function DeleteItem(itemID) {
+            var checkDelete = $('.checkItem');
+            var numCheckDelete = checkDelete.length;
             var c = confirm('Bạn muốn xóa lựa chọn ?');
             if (c) {
                 $.post(encodeURI(urlActionHandler), { "do": "delete", "itemid": itemID }, function (data) {
-                    loadData();
+                    loadData(numCheckDelete);                   
                 });
             }
+
+
         }
+
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </asp:Content>

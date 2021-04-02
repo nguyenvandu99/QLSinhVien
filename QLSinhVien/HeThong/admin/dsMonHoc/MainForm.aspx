@@ -100,8 +100,8 @@
                         + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
                         + "<td class='cotSoTC'>" + data[i].SOTINCHI + "</td>"
-                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-trash-alt'></i> </a> </td>"
                         + "</tr>";
                 } $("#dataList").html(htmlData);
             })
@@ -117,8 +117,8 @@
                         + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
                         + "<td class='cotSoTC'>" + data[i].SOTINCHI + "</td>"                      
-                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
-                        + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
+                        + "<td class='cotCongCu'><a href='#' title='Sửa' onclick=\"EditItem(" + data[i].ID + ");\"><i class='fa fa-edit'></i> </a>"
+                        + "<a href='#' title='Xóa' onclick=\"DeleteItem(" + data[i].ID + ");\"><i class='fa fa-trash-alt'></i> </a> </td>"
                         + "</tr>";
                 }
 

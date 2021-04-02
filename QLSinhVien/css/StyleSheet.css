@@ -244,7 +244,7 @@ table.table {
     }
 
     table.table .cotCheckBox {               
-        width: 2%;       
+        width: 1%;       
     }
 
     table.table .cotMaKhoa {
@@ -533,13 +533,8 @@ zone--list h3 {
     background-color: #05fa28;
 
 }
-.btn.btn-warning {
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 10px;
-}
-.btn.btn-danger {
-    margin-left: 5px;
-    margin-right: 5px;
-    border-radius: 10px;
+.fa {
+    
+    margin-right: 20%;
+    
 }
