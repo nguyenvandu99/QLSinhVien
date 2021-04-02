@@ -40,6 +40,18 @@ namespace DataAccess.LiB
                          });
             return query.OrderBy(p => p.TEN).Take(pageSize).Skip(excludedRows).ToList();
         }
+        public List<LopHocEntity> Search(string searchValue)
+        {
+            var query = (from lh in dbContext.LopHocs
+                         select new LopHocEntity
+                         {
+                             ID = lh.ID,
+                             TEN = lh.TEN,
+                             CHUNHIEM = lh.CHUNHIEM
+                         });
+            return query.Where(p => (p.TEN.Contains(searchValue))).ToList();
+
+        }
         public LopHoc getByID(int Id)
         {
             return dbContext.LopHocs.Where(p => p.ID == Id).FirstOrDefault();

@@ -13,7 +13,7 @@ namespace QLSinhVien.HeThong.admin.dsMonHoc
         public MonHoc mh = new MonHoc();
         public string doAction = "";
         public int itemID;
-    
+        public List<MonHocEntity> tbl_MonHocs = new List<MonHocEntity>();
         protected void Page_Load(object sender, EventArgs e)
         {
             QLSinhVienEntities dbContext = new QLSinhVienEntities();
@@ -24,6 +24,7 @@ namespace QLSinhVien.HeThong.admin.dsMonHoc
             {
                 mh = dapMonHoc.getByID(itemID);
             }
+            tbl_MonHocs.AddRange(dapMonHoc.getData());
         }
     }
 }

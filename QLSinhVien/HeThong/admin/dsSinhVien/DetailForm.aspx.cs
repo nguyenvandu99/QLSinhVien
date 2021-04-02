@@ -13,9 +13,11 @@ namespace QLSinhVien.HeThong.admin.dsSinhVien
         public HocSinh hs = new HocSinh();
         public string doAction = "";
         public int itemID;
-        public List<LopHocEntity> tbl_lopHocs = new List<LopHocEntity>();        
+        public List<LopHocEntity> tbl_lopHocs = new List<LopHocEntity>();
+        public List<HocSinhEntity> tbl_HocSinhs = new List<HocSinhEntity>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             QLSinhVienEntities dbContext = new QLSinhVienEntities();
             HocSinhDAP dapHocSinh = new HocSinhDAP(dbContext);
             LopHocDAP dapLopHoc = new LopHocDAP(dbContext);
@@ -26,6 +28,8 @@ namespace QLSinhVien.HeThong.admin.dsSinhVien
                 hs = dapHocSinh.getByID(itemID);
             }
             tbl_lopHocs.AddRange(dapLopHoc.getData());
+            tbl_HocSinhs.AddRange(dapHocSinh.getData());
+
         }
     }
 }

@@ -57,6 +57,7 @@
 <script type="text/javascript">
     var urlActionHandler = "ActionHandler.aspx";
     $(document).ready(function () {
+        
         $("#btnSaveStudent").click(function () {
             if (validate()) {
                 SubmitForm();
@@ -79,16 +80,34 @@
     }
     function validate() {
         isValid = true;
-        if (document.getElementById("txtTen").value == "") {
-            isValid = false;           
-            alert('Vui lòng nhập đầy đủ năm học.');
-
+        var Action = "<%=doAction%>";//lấy ra hành động
+        var TenHS = "<%=hs.TEN %>";//lấy ra giá trị tên 
+        var listTenHS = [];
+        // Lấy ra danh sách tên lớp học vào mảng
+        listTenHS.push(<% foreach (var item in tbl_HocSinhs) {%>"<%=item.TEN%>", <% } %>);
+        //Kiểm tra xem hành động có phải là edit không ?
+        if (Action == 'edit') {
+            //Nếu là edit thì xóa tên hiện tại trong mảng
+            NewlistTenHS = listTenHS.filter(item => item !== TenHS);
+            var checkItem = NewlistTenHS.indexOf(document.getElementById("txtTen").value);
         } else {
+            //Nếu không phải edit thì kiểm tra ở mảng khởi tạo ban đầu
+            var checkItem = listTenHS.indexOf(document.getElementById("txtTen").value);
+        }
+        if (document.getElementById("txtTen").value == "") {
+            isValid = false;
+            alert('Vui lòng nhập đầy đủ tên học sinh.');
+        }
+        else if (checkItem >= 0) {
+            isValid = false;
+            alert('Tên học sinh đã tồn tại vui lòng nhập tên khác.');
+        }
+        else {
             isValid = true;
-            
-        }      
+        }
         return isValid;
     }
+
     
 
 

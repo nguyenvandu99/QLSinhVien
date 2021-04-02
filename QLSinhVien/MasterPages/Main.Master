@@ -40,8 +40,10 @@
                     <li><a class="menuNavBar" href="/HeThong/admin/dsSinhVien/MainForm.aspx" title="Danh sách sinh viên">
                         <img src="/img/icon/list.jpg" style="width: 30px; height: 30px;" />Danh sách sinh viên</a></li>
                     <li><a class="menuNavBar" href="/HeThong/admin/dsGiangVien/MainForm.aspx" title="Danh sách giảng viên">
-                        <img src="/img/icon/list.jpg" style="width: 30px; height: 30px;" />Danh sách giảng viên</a></li>                   
-                     <li><a class="menuNavBar"  href="/HeThong/admin/dsMonHoc/MainForm.aspx" title="Danh sách môn học">
+                        <img src="/img/icon/search.jpg" style="width: 30px; height: 30px;" />Danh sách giảng viên</a></li>                   
+                      <li><a class="menuNavBar"  href="/HeThong/admin/dsLopHoc/MainForm.aspx" title="Danh sách môn học">
+                        <img src="/img/icon/list.jpg" style="width:25px;height:25px;" />Danh sách lớp học</a></li>
+                    <li><a class="menuNavBar"  href="/HeThong/admin/dsMonHoc/MainForm.aspx" title="Danh sách môn học">
                         <img src="/img/icon/search.jpg" style="width:25px;height:25px;" />Danh sách môn học</a></li>
                      <li><a class="menuNavBar" href="/HeThong/admin/dkMonHoc/MainForm.aspx" title="Đăng ký môn học">
                         <img src="/img/icon/list.jpg" style="width: 30px; height: 30px;" />Đăng ký môn học</a></li>

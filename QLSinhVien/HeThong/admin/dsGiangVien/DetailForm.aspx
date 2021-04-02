@@ -49,16 +49,36 @@
     }
     function validate() {
         isValid = true;
-        if (document.getElementById("txtTen").value == "") {
-            isValid = false;           
-            alert('Vui lòng nhập đầy đủ họ tên.');
-
+        var Action = "<%=doAction%>"; //Lấy tên hành động
+        var TenGV = "<%=gv.TEN %>"; // Lấy giá trị trả về của tên
+        var listTenGV = [];
+        // Lấy ra danh sách tên lớp học vào mảng
+        listTenGV.push(<% foreach (var item in tbl_GiaoViens) {%>"<%=item.TEN%>", <% } %>);
+        //Kiểm tra xem hành động có phải là edit không ?
+        if (Action == 'edit') {
+            //Nếu là edit thì xóa tên hiện tại trong mảng
+            NewlistTenGV = listTenGV.filter(item => item !== TenGV);
+            var checkItem = NewlistTenGV.indexOf(document.getElementById("txtTen").value);
         } else {
+            //Nếu không phải edit thì kiểm tra ở mảng khởi tạo ban đầu
+            var checkItem = listTenGV.indexOf(document.getElementById("txtTen").value);
+        }
+        if (document.getElementById("txtTen").value == "") {
+            isValid = false;
+            alert('Vui lòng nhập đầy đủ tên giáo viên .');
+        }
+        else if (checkItem >= 0) {
+            isValid = false;
+            alert('Tên giáo viên đã tồn tại vui lòng nhập tên khác.');
+        }
+        else {
             isValid = true;
-            
-        }      
+        }
         return isValid;
     }
+
+
+
     function closeDialog() {
         $("#jdialog").html("").dialog('close');
     }

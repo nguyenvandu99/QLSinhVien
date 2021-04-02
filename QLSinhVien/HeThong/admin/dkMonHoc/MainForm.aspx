@@ -23,13 +23,13 @@
             <thead>
                 <tr>
                     <th class="cotCheckBox">
-                        <input type="checkbox" id="checkbox-all" /></th>
+                        <input type="checkbox" id="checkbox-all" />All</th>
                     <th class="cotMa">Mã đăng ký</th>
-                    <th class="cotTen">Năm học</th>
-                    <th class="cotNamSinh">Tên học sinh</th>
-                    <th class="cotNamSinh">Tên môn học</th>
-                    <th class="cotNamSinh">Tên giáo viên</th>
-                    <th class="cotNamSinh">Ngày đăng ký</th>
+                    <th class="cotNamHoc">Năm học</th>
+                    <th class="cotTenSV">Tên học sinh</th>
+                    <th class="cotTenMH">Tên môn học</th>
+                    <th class="cotTenGV">Tên giáo viên</th>
+                    <th class="cotNgayDK">Ngày đăng ký</th>
                     <th class="cotCongCu">Công cụ</th>
                 </tr>
             </thead>
@@ -99,13 +99,13 @@
                 for (var i = 0; i < data.length; i++) {
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
-                        + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
-                        + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
-                        + "<td class='row_data'>" + data[i].NAMHOC + "</td>"
+                        + "<td class='cotCheckBox'><input name=courseIds class='checkItem' type=checkbox /> </td>"
+                        + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
+                        + "<td class='cotNamHoc'>" + data[i].NAMHOC + "</td>"
                         + "<td>" + data[i].TenHocSinh + "</td>"
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
-                        + "<td>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
+                        + "<td class='cotNgayDK'>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
                         + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
                         + "</tr>";
@@ -133,16 +133,17 @@
                 for (var i = 0; i < data.length; i++) {
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
-                        + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
-                        + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
-                        + "<td class='row_data'>" + data[i].NAMHOC + "</td>"
+                        + "<td class='cotCheckBox'><input name=courseIds class='checkItem' type=checkbox /> </td>"
+                        + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
+                        + "<td class='cotNamHoc'>" + data[i].NAMHOC + "</td>"
                         + "<td>" + data[i].TenHocSinh + "</td>"
                         + "<td>" + data[i].TenMonHoc + "</td>"
                         + "<td>" + data[i].TenGiaoVien + "</td>"
-                        + "<td>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
+                        + "<td class='cotNgayDK'>" + GetFormattedDate(data[i].NGAYDANGKY) + "</td>"
                         + "<td><button  class='btn btn-warning' id='btnEd'   onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger' id='btnDele' onclick=\"DeleteItem(" + data[i].ID + ");\"> Xóa</button></td>"
                         + "</tr>";
+
                 }
                 $("#dataList").html(htmlData);
                 CheckboxAll();

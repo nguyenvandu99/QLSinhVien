@@ -179,9 +179,6 @@ table.table {
     max-height:600px;
 }
 
-    table.table th {
-        text-align: center
-    }
 
 
     table.table .cotMa {
@@ -190,12 +187,24 @@ table.table {
     }
 
     table.table .cotTen {
+        text-align:center;
         width: 10%;
     }
-
-    table.table .cotQueQuan {
+    table.table .cotSoTC {
+        text-align:center;
+        width: 10%;
+    }
+    table.table .cotHocHamHocVi {
+        text-align: center;
+        width: 10%;
+    }
+    table.table .cotNamHoc {
         text-align: center;
         width: 5%;
+    }
+    table.table .cotQueQuan {
+       
+        width: 7%;
     }
 
     table.table .cotGioiTinh {
@@ -204,6 +213,22 @@ table.table {
     }
 
     table.table .cotNamSinh {
+        text-align: center;
+        width: 5%;
+    }
+    table.table .cotTenSV {
+        text-align: center;
+        width: 5%;
+    }
+    table.table .cotTenGV {
+        text-align: center;
+        width: 5%;
+    }
+    table.table .cotTenMH {
+        text-align: center;
+        width: 5%;
+    }
+    table.table .cotNgayDK {
         text-align: center;
         width: 5%;
     }
@@ -218,9 +243,8 @@ table.table {
         width: 5%;
     }
 
-    table.table .cotCheckBox {
-        text-align: left;
-        width: 2%;
+    table.table .cotCheckBox {               
+        width: 2%;       
     }
 
     table.table .cotMaKhoa {
@@ -260,7 +284,7 @@ table.table {
 
     table.table .cotCongCu {
         text-align: right;
-        width: 5%;
+        width: 3%;
     }
 
         table.table .cotCongCu a {
@@ -270,11 +294,11 @@ table.table {
         }
 
             table.table .cotCongCu a.Edit {
-                background-image: url('../img/edit.jpg');
+                background-image: url('/img/edit.jpg');
             }
 
             table.table .cotCongCu a.Delete {
-                background-image: url('../img/delete.jpg');
+                background-image: url('/img/delete.jpg');
             }
     /*css môn học*/
     table.table .cotLopHocPhan {

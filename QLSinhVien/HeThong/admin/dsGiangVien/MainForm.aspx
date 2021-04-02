@@ -7,8 +7,6 @@
         <div class="head1">
             Thêm mới,chỉnh sửa giáo viên khoa công nghệ thông tin
         </div>
-
-
         <div class="col-sm-12">
             <button id="btnAdd" name="btnAdd" class="btn btn-primary " type="button">Thêm</button>
             <button id="button-delete" name="button-delete" class="btn btn-danger  disabled" type="submit">Xóa</button>
@@ -23,10 +21,10 @@
             <thead>
                 <tr>
                     <th class="cotCheckBox">
-                        <input type="checkbox" id="checkbox-all" /></th>
+                        <input type="checkbox" id="checkbox-all" />All</th>
                     <th class="cotMa">Mã giảng viên</th>
                     <th class="cotTen">Họ và tên</th>
-                    <th class="cotNamSinh">Học hàm học vị</th>
+                    <th class="cotHocHamHocVi">Học hàm học vị</th>
                     <th class="cotCongCu">Công cụ</th>
                 </tr>
             </thead>
@@ -97,10 +95,10 @@
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
-                        + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
+                        + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
-                        + "<td>" + data[i].HOCHAM_HOCVI + "</td>"
-                        + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
+                        + "<td class='cotHocHamHocVi'>" + data[i].HOCHAM_HOCVI + "</td>"
+                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
                 } $("#dataList").html(htmlData);
@@ -114,10 +112,10 @@
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
-                        + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
+                        + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
-                        + "<td>" + data[i].HOCHAM_HOCVI + "</td>"
-                        + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
+                        + "<td class='cotHocHamHocVi'>" + data[i].HOCHAM_HOCVI + "</td>"
+                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
                 }

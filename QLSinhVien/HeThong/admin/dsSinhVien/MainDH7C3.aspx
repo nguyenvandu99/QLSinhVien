@@ -95,13 +95,13 @@
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
-                        + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
+                        + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
-                        + "<td>" + GetFormattedDate(data[i].NGAYSINH) + "</td>"
-                        + "<td>" + (data[i].GIOITINH == 0 ? "Nam" : "Nữ") + "</td>"
-                        + "<td>" + data[i].QUEQUAN + "</td>"
-                        + "<td>" + data[i].TenLop + "</td>"
-                        + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
+                        + "<td class='cotNamSinh'>" + GetFormattedDate(data[i].NGAYSINH) + "</td>"
+                        + "<td class='cotGioiTinh'>" + (data[i].GIOITINH == 0 ? "Nam" : "Nữ") + "</td>"
+                        + "<td class='cotQueQuan'>" + data[i].QUEQUAN + "</td>"
+                        + "<td class='cotMa'>" + data[i].TenLop + "</td>"
+                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
                 } $("#dataList").html(htmlData);
@@ -123,13 +123,13 @@
                     htmlData +=
                         "<tr row_id=" + data[i].ID + ">"
                         + "<td><input name=courseIds class='checkItem' type=checkbox /> </td>"
-                        + "<td><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
+                        + "<td class='cotMa'><a href=\"#\" onclick=\"FormView(" + data[i].ID + ");\">" + data[i].ID + "</a></td>"
                         + "<td class='row_data'>" + data[i].TEN + "</td>"
-                        + "<td>" + GetFormattedDate(data[i].NGAYSINH) + "</td>"
-                        + "<td>" + (data[i].GIOITINH == 0 ? "Nam" : "Nữ") + "</td>"
-                        + "<td>" + data[i].QUEQUAN + "</td>"
-                        + "<td>" + data[i].TenLop + "</td>"
-                        + "<td><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
+                        + "<td class='cotNamSinh'>" + GetFormattedDate(data[i].NGAYSINH) + "</td>"
+                        + "<td class='cotGioiTinh'>" + (data[i].GIOITINH == 0 ? "Nam" : "Nữ") + "</td>"
+                        + "<td class='cotQueQuan'>" + data[i].QUEQUAN + "</td>"
+                        + "<td class='cotMa'>" + data[i].TenLop + "</td>"
+                        + "<td class='cotCongCu'><button class='btn btn-warning'  onclick=\"EditItem(" + data[i].ID + ");\">Sửa</button>"
                         + "<button class='btn btn-danger'  onclick=\"DeleteItem(" + data[i].ID + ");\">Xóa</button></td>"
                         + "</tr>";
                 }

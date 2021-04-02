@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.LiB
 {
-   public class GiaoVienDAP
+    public class GiaoVienDAP
     {
         QLSinhVienEntities dbContext;
 
@@ -15,7 +15,7 @@ namespace DataAccess.LiB
             dbContext = __dbContext;
         }
 
-        public List<GiaoVienEntity> getPaged(int pageNum , int pageSize,string strTenGV)
+        public List<GiaoVienEntity> getPaged(int pageNum, int pageSize, string strTenGV)
         {
             int excludedRows = (pageNum - 1) * pageSize;
             strTenGV = strTenGV.Trim().ToLower();
@@ -33,16 +33,16 @@ namespace DataAccess.LiB
         public List<GiaoVienEntity> getData()
         {
             var query = (from gv in dbContext.GiaoViens
-                        select new GiaoVienEntity
-                        {
-                            ID           = gv.ID,
-                            TEN          = gv.TEN,
-                            HOCHAM_HOCVI = gv.HOCHAM_HOCVI
-                        });
+                         select new GiaoVienEntity
+                         {
+                             ID = gv.ID,
+                             TEN = gv.TEN,
+                             HOCHAM_HOCVI = gv.HOCHAM_HOCVI
+                         });
             return query.OrderBy(p => p.TEN).ToList();
         }
         public List<GiaoVienEntity> Search(string searchValue)
-        {          
+        {
             var query = (from gv in dbContext.GiaoViens
                          select new GiaoVienEntity
                          {
@@ -78,10 +78,15 @@ namespace DataAccess.LiB
         {
             GiaoVien objGiaoVien = getByID(Id);
             DangKyHoc objDangKyHoc = getByIDC(Id);
-
-
-            dbContext.DangKyHocs.Remove(objDangKyHoc);
-            dbContext.GiaoViens.Remove(objGiaoVien);
+            if (Convert.ToString(objDangKyHoc) == "")
+            {
+                dbContext.GiaoViens.Remove(objGiaoVien);
+            }
+            else
+            {
+                dbContext.DangKyHocs.Remove(objDangKyHoc);
+                dbContext.GiaoViens.Remove(objGiaoVien);
+            }
             return dbContext.SaveChanges();
         }
     }

@@ -80,10 +80,14 @@ namespace DataAccess.LiB
         {
             MonHoc objDMonHoc = getByID(Id);
             DangKyHoc objDangKyHoc = getByIDC(Id);
-
-
+            if(Convert.ToString(objDangKyHoc) == "")
+            {
+                dbContext.MonHocs.Remove(objDMonHoc);
+            }
+            else {
             dbContext.DangKyHocs.Remove(objDangKyHoc);
             dbContext.MonHocs.Remove(objDMonHoc);
+            }
             return dbContext.SaveChanges();
         }
     }

@@ -202,11 +202,11 @@ namespace DataAccess.LiB
         {
             return dbContext.HocSinhs.Where(p => p.ID == Id).FirstOrDefault();
         }
-         public DangKyHoc getByIDC(int Id)
+         public  DangKyHoc getByIDC(int Id)
             {
                 return dbContext.DangKyHocs.Where(p => p.HOCSINH == Id).FirstOrDefault();
             }
-
+       
             public int Add(HocSinh objHocSinh)
         {
             dbContext.HocSinhs.Add(objHocSinh);
@@ -222,10 +222,17 @@ namespace DataAccess.LiB
         {
                                  
             HocSinh objHocSinh = getByID(Id);
+
             DangKyHoc objDangKyHoc = getByIDC(Id);
-            
-            dbContext.DangKyHocs.Remove(objDangKyHoc);
-            dbContext.HocSinhs.Remove(objHocSinh);
+            if(Convert.ToString(objDangKyHoc) == "")
+            {
+                dbContext.HocSinhs.Remove(objHocSinh);
+            }
+            else{ 
+                dbContext.DangKyHocs.Remove(objDangKyHoc);
+                dbContext.HocSinhs.Remove(objHocSinh);
+            }
+
             return dbContext.SaveChanges();
         }
 
