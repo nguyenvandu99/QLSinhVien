@@ -60,10 +60,7 @@ namespace DataAccess.LiB
         {
             return dbContext.GiaoViens.Where(p => p.ID == Id).FirstOrDefault();
         }
-        public DangKyHoc getByIDC(int Id)
-        {
-            return dbContext.DangKyHocs.Where(p => p.GIAOVIEN == Id).FirstOrDefault();
-        }
+
 
         public int Add(GiaoVien objGiaoVien)
         {
@@ -77,16 +74,9 @@ namespace DataAccess.LiB
         public int Delete(int Id)
         {
             GiaoVien objGiaoVien = getByID(Id);
-            DangKyHoc objDangKyHoc = getByIDC(Id);
-            if (Convert.ToString(objDangKyHoc) == "")
-            {
-                dbContext.GiaoViens.Remove(objGiaoVien);
-            }
-            else
-            {
-                dbContext.DangKyHocs.Remove(objDangKyHoc);
-                dbContext.GiaoViens.Remove(objGiaoVien);
-            }
+
+            dbContext.GiaoViens.Remove(objGiaoVien);
+
             return dbContext.SaveChanges();
         }
     }

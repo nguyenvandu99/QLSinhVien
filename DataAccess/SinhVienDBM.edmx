@@ -62,7 +62,9 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_DangKyHoc_GiaoVien">
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="GiaoVien">
@@ -74,7 +76,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DangKyHoc_HocSinh">
-          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HocSinh">
@@ -86,7 +90,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DangKyHoc_MonHoc">
-          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MonHoc">
@@ -202,8 +208,11 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_DangKyHoc_GiaoVien">
-          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" />
-          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
+          <End Role="GiaoVien" Type="Self.GiaoVien" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="GiaoVien">
               <PropertyRef Name="ID" />
@@ -214,8 +223,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DangKyHoc_HocSinh">
-          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" />
-          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="HocSinh">
               <PropertyRef Name="ID" />
@@ -226,8 +238,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DangKyHoc_MonHoc">
-          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
-          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" />
+          <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DangKyHoc" Type="Self.DangKyHoc" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="MonHoc">
               <PropertyRef Name="ID" />
@@ -238,8 +253,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_HocSinh_LopHoc">
-          <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" />
-          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="*" />
+          <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" >
+          </End>
+          <End Role="HocSinh" Type="Self.HocSinh" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="LopHoc">
               <PropertyRef Name="ID" />

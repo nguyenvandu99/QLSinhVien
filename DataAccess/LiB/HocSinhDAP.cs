@@ -11,12 +11,12 @@ namespace DataAccess.LiB
     public class HocSinhDAP
     {
         QLSinhVienEntities dbContext;
-        
-    public HocSinhDAP(QLSinhVienEntities __dbContext)
+
+        public HocSinhDAP(QLSinhVienEntities __dbContext)
         {
             dbContext = __dbContext;
         }
-   
+
 
         public List<HocSinhEntity> getData()
         {
@@ -202,12 +202,9 @@ namespace DataAccess.LiB
         {
             return dbContext.HocSinhs.Where(p => p.ID == Id).FirstOrDefault();
         }
-         public  DangKyHoc getByIDC(int Id)
-            {
-                return dbContext.DangKyHocs.Where(p => p.HOCSINH == Id).FirstOrDefault();
-            }
-       
-            public int Add(HocSinh objHocSinh)
+
+
+        public int Add(HocSinh objHocSinh)
         {
             dbContext.HocSinhs.Add(objHocSinh);
             return dbContext.SaveChanges();
@@ -217,26 +214,17 @@ namespace DataAccess.LiB
         {
             return dbContext.SaveChanges();
         }
-        
+
         public int Delete(int Id)
         {
-                                 
+
             HocSinh objHocSinh = getByID(Id);
-
-            DangKyHoc objDangKyHoc = getByIDC(Id);
-            if(Convert.ToString(objDangKyHoc) == "")
-            {
-                dbContext.HocSinhs.Remove(objHocSinh);
-            }
-            else{ 
-                dbContext.DangKyHocs.Remove(objDangKyHoc);
-                dbContext.HocSinhs.Remove(objHocSinh);
-            }
-
+            dbContext.HocSinhs.Remove(objHocSinh);
             return dbContext.SaveChanges();
         }
 
-        
+
+
 
     }
 }

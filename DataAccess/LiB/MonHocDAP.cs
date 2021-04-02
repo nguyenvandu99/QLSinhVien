@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.LiB
 {
-   public class MonHocDAP
+    public class MonHocDAP
     {
         QLSinhVienEntities dbContext;
 
@@ -17,7 +17,7 @@ namespace DataAccess.LiB
 
 
 
-        public List<MonHocEntity> getPaged(int pageNum, int pageSize,string strTenMH)
+        public List<MonHocEntity> getPaged(int pageNum, int pageSize, string strTenMH)
         {
             int excludedRows = (pageNum - 1) * pageSize;
             strTenMH = strTenMH.Trim().ToLower();
@@ -37,9 +37,9 @@ namespace DataAccess.LiB
             var query = (from obj in dbContext.MonHocs
                          select new MonHocEntity
                          {
-                            ID       = obj.ID,
-                            TEN      = obj.TEN,
-                            SOTINCHI = obj.SOTINCHI,
+                             ID = obj.ID,
+                             TEN = obj.TEN,
+                             SOTINCHI = obj.SOTINCHI,
                          });
             return query.OrderBy(p => p.TEN).ToList();
         }
@@ -60,10 +60,7 @@ namespace DataAccess.LiB
         {
             return dbContext.MonHocs.Where(p => p.ID == Id).FirstOrDefault();
         }
-        public DangKyHoc getByIDC(int Id)
-        {
-            return dbContext.DangKyHocs.Where(p => p.MONHOC == Id).FirstOrDefault();
-        }
+       
 
         public int Add(MonHoc objDMonHoc)
         {
@@ -79,15 +76,10 @@ namespace DataAccess.LiB
         public int Delete(int Id)
         {
             MonHoc objDMonHoc = getByID(Id);
-            DangKyHoc objDangKyHoc = getByIDC(Id);
-            if(Convert.ToString(objDangKyHoc) == "")
-            {
-                dbContext.MonHocs.Remove(objDMonHoc);
-            }
-            else {
-            dbContext.DangKyHocs.Remove(objDangKyHoc);
+
+
             dbContext.MonHocs.Remove(objDMonHoc);
-            }
+
             return dbContext.SaveChanges();
         }
     }

@@ -38,4 +38,5 @@ namespace DataAccess
         public string TenGiaoVien { get; set; }
         public string TenMonHoc { get; set; }
     }
+
 }
